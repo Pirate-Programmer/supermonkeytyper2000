@@ -28,10 +28,11 @@ tess.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 crop = (150, 530, 1800, 710)
 
 #set this delay to adjust typing speed
-sleep(0.1)
+delay = 0.1
 
 #blah.... some code
 ```
 4. Run da script ;D
+
 
 
