@@ -8,11 +8,18 @@ from time import sleep
 #for long and more text doesnt show up in single image
 #try a theme where curson is barely visible and text is clear (tested with theme 'iv clover')
 
-#top left (x,y) , bottom right (x,y)
-crop = (150,530,1800,710)
+
+
+#Properties 
 
 #path to tesseract.exe
 tess.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+#top left (x,y) , bottom right (x,y)
+crop = (150,530,1800,710)
+
+#adjust typing speed
+delay = 0.1
 
 
 #capture screenshot
@@ -29,6 +36,7 @@ def get_text(img) -> str:
     text = tess.image_to_string(img)
     return text
 
+#smack em keys
 def supermonkeytyper2000(text):
     strokeMaster = keyboard.Controller()
     for line in text.splitlines():
@@ -37,11 +45,14 @@ def supermonkeytyper2000(text):
                 strokeMaster.tap(keyboard.Key.space)
             else:
                 strokeMaster.tap(c)
-            sleep(0.1)
+            sleep(delay)
         strokeMaster.tap(keyboard.Key.space)
     print("hehe")
 
+
 #setup Keyboard Listener thread
+
+#check if f8 has been pressed
 def on_press(key):
     if key == keyboard.Key.f8:
         sleep(0.5)
@@ -50,10 +61,13 @@ def on_press(key):
         print(text.splitlines())
         supermonkeytyper2000(text)
 
+#exit listener when esc key hit
+#note when controller is typing keystrokes, unable to exit
+#gotta kill the script in such case
 def on_release(key):
     return not key == keyboard.Key.esc
         
-
+#threaderuni
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
 
