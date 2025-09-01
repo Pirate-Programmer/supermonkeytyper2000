@@ -7,7 +7,6 @@ Script to auto-type text from Monkeytype using screenshots + OCR.
 ## Usage
 - **F8** → take screenshot (make sure Monkeytype window is active).  
 - **Esc** → stop the listener.  
-- Works only for Monkeytype.
 
 ---
 
@@ -24,3 +23,4 @@ tess.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 Adjust crop values in script for your screen resolution:
 crop = (150, 530, 1800, 710)
+
