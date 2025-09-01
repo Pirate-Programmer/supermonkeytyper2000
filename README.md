@@ -14,13 +14,14 @@ Script to auto-type text from Monkeytype using screenshots + OCR.
 1. Install dependencies:
    ```bash
    pip install -r requirements.txt
+   ```
+2. Install [Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
    
-2. Install Tesseract OCR
-
 3. Set path in script if on Windows:
-```bash
+```python
 tess.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-Adjust crop values in script for your screen resolution:
+#Adjust crop values in script for your screen resolution:
 crop = (150, 530, 1800, 710)
+```
 
