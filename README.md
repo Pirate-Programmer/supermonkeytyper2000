@@ -3,10 +3,10 @@
 Script to auto-type text from Monkeytype using screenshots + OCR.
 
 ---
-#Note
+# Note
 Use it at your own risk if You get banned or something goes wrong you have been warned. This script is only for "educational purpose"
 
----
+
 ## Usage
 - **F8** → take screenshot (make sure Monkeytype window is active).  
 - **Esc** → stop the listener.  
@@ -40,6 +40,7 @@ delay = 0.1
 #blah.... some code
 ```
 5. Run da script ;D
+
 
 
 
