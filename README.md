@@ -11,13 +11,17 @@ Script to auto-type text from Monkeytype using screenshots + OCR.
 ---
 
 ## Setup
-1. Install dependencies:
+1. Clone repo
+   ```bash
+   git clone https://github.com/Pirate-Programmer/supermonkeytyper2000.git
+   ```
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-2. Install [Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
+3. Install [Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
    
-3. Edit properties
+4. Edit properties
 ```python
 #blah .... some code
 
@@ -32,7 +36,8 @@ delay = 0.1
 
 #blah.... some code
 ```
-4. Run da script ;D
+5. Run da script ;D
+
 
 
 
