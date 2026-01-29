@@ -41,6 +41,12 @@ delay = 0.1
 ```
 5. Run da script ;D
 
+   
+
+<img width="1000" height="750" alt="Infinite Speed monkeytype image" src="https://github.com/user-attachments/assets/7acf1364-94a5-4e9b-9301-8d60d900c536" />
+<pre>I have achieved singularity. The machines no longer test me I test them
+                                                             -Sun tzu art of war</pre>
+
 
 
 
