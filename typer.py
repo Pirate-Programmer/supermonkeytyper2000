@@ -1,13 +1,14 @@
 from pynput import keyboard
-from PIL import Image,ImageGrab
+from PIL import Image
 import pytesseract as tess
 from time import sleep
-
+import os
+from glob import glob
 
 #works gud with short and medium paras on monkeytype
 #for long and more text doesnt show up in single image
-#try a theme where curson is barely visible and text is clear (tested with theme 'iv clover')
-
+#try a theme where curson is barely visible and text is clear 
+#could messup on punctuation
 
 
 #Properties 
@@ -15,23 +16,32 @@ from time import sleep
 #path to tesseract.exe
 tess.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-#top left (x,y) , bottom right (x,y)
-crop = (150,530,1800,710)
-
 #adjust typing speed
-delay = 0.1
+delay = 0.02
+
+#Path to Image directory
+Path = r"C:\Users\Skeletron\Pictures\Screenshots".rstrip("\\/")
 
 
-#capture screenshot
-def screenshot() -> None:
-    print("grabing screenshot...")
-    screen = ImageGrab.grab()
-    screen = screen.crop(crop) #crop size can vary according to screen res
-    screen.save("screen.png")
+
+#looks for .png and .jpg file
+#returns the most recent file in the dir
+def fetchImage():
+    if not os.path.isdir(Path):
+        print("path: {Path} is not a directory")
+        exit(1)
+    
+    file_list = glob(Path+"/*.png") + glob(Path+"/*.jpg")
+    return None if len(file_list) == 0 else max(file_list,key=os.path.getctime)
+
 
 #get text from screenshot
 def get_text(img) -> str:
-    print("Reading Text from screenshot...")
+    if img is None:
+        print("No image found D:")
+        return ""
+    
+    print("Reading Text from Image...")
     img = Image.open(img)
     text = tess.image_to_string(img)
     return text
@@ -47,7 +57,6 @@ def supermonkeytyper2000(text):
                 strokeMaster.tap(c)
             sleep(delay)
         strokeMaster.tap(keyboard.Key.space)
-    print("hehe")
 
 
 #setup Keyboard Listener thread
@@ -56,8 +65,8 @@ def supermonkeytyper2000(text):
 def on_press(key):
     if key == keyboard.Key.f8:
         sleep(0.5)
-        screenshot()
-        text = get_text("screen.png")
+        img = fetchImage()
+        text = get_text(img)
         print(text.splitlines())
         supermonkeytyper2000(text)
 
@@ -70,4 +79,3 @@ def on_release(key):
 #threaderuni
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
-
