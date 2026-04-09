@@ -1,6 +1,6 @@
 # SuperMonkeyTyper2000
 
-Script to auto-type text from Monkeytype using screenshots + OCR.
+Script to auto-type text from Monkeytype or any text for that matter using screenshots + OCR.
 
 ---
 # Note
@@ -8,7 +8,8 @@ Use it at your own risk if You get banned or something goes wrong you have been 
 
 
 ## Usage
-- **F8** → take screenshot (make sure Monkeytype window is active).  
+(First take screenshot of the exact text to type)
+- **F8** → to begin typing ensure cursor is at the appropiate position.  
 - **Esc** → stop the listener.  
 
 ---
@@ -31,11 +32,11 @@ Use it at your own risk if You get banned or something goes wrong you have been 
 #Set path in script if on Windows:
 tess.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-#Adjust crop values in script for your screen resolution:
-crop = (150, 530, 1800, 710)
-
 #set this delay to adjust typing speed
 delay = 0.1
+
+#set this Path to Image directory
+Path = r"C:\Users\Skeletron\Pictures\Screenshots".rstrip("\\/")
 
 #blah.... some code
 ```
